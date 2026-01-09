@@ -1,4 +1,7 @@
 package com.example.Project.enums;
 
-public class BookingCategory {
+public enum BookingCategory {
+    ROOM,
+    WEDDING,
+    TABLE
 }

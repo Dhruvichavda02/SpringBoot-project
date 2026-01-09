@@ -1,14 +1,13 @@
-package com.example.Project.model;
+package com.example.Project.model.staff;
 
 
 import com.example.Project.enums.StaffRole;
+import com.example.Project.model.UserMST;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import org.aspectj.apache.bcel.ExceptionConstants;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 @Entity
 @Table(name = "Staff")
