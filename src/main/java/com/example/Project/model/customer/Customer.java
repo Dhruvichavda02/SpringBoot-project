@@ -1,6 +1,7 @@
-package com.example.Project.model;
+package com.example.Project.model.customer;
 
 
+import com.example.Project.model.UserMST;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 

@@ -2,7 +2,7 @@ package com.example.Project.DTOs;
 
 import java.util.List;
 
-public class CustomerAttachmentResponseDTO {
+public class CustomerResponseDTO {
     private Integer id;
     private String name;
     private String address;

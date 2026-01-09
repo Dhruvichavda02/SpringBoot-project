@@ -1,10 +1,16 @@
 package com.example.Project.repository;
 
-import com.example.Project.model.Customer;
+import com.example.Project.model.customer.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.List;
 import java.util.Optional;
 
-public interface CustomerRepo extends JpaRepository<Customer,Integer>{
-    Customer findByUsername(String username);
+public interface CustomerRepo extends JpaRepository<Customer,Integer> {
+
+    Customer findByContactAndActiveTrue(String contact);
+    List<Customer> findByActiveTrue();
+
+    Optional<Customer> findByIdAndActiveTrue(Integer id);
+
 }

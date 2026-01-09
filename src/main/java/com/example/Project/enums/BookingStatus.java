@@ -1,4 +1,7 @@
 package com.example.Project.enums;
 
-public class BookingStatus {
+public enum BookingStatus {
+    COMPLETED,
+    CONFIRMED,
+    CANCELLED
 }

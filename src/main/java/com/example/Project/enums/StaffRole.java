@@ -1,4 +1,7 @@
 package com.example.Project.enums;
 
-public enum Role {
+public enum StaffRole {
+    ADMIN,
+    MANAGER,
+    STAFF
 }
