@@ -40,7 +40,7 @@ public class PaymentService {
 
     public Map<String,Object> createPaymentLink(CreatePaymentDTO dto) throws RazorpayException {
         Double amount;
-        String receipt;
+
 
 
         if(dto.getPaymentFor() == PaymentFor.BOOKING){
@@ -49,13 +49,13 @@ public class PaymentService {
                     .orElseThrow(() -> new RuntimeException("Booking not found"));
 
             amount = booking.getAmount();
-            receipt = "BOOKING_"+ booking.getId();
+
         } else if (dto.getPaymentFor() == PaymentFor.ORDER) {
             OrderModel order = orderRepository.findActiveOrdersById(dto.getReferenceId())
                     .orElseThrow(() -> new RuntimeException("Booking not found"));
 
             amount = order.getAmount();
-            receipt = "BOOKING_"+ order.getId();
+
         }else{
             throw new RuntimeException("Invalid Payment type");
         }
@@ -63,14 +63,10 @@ public class PaymentService {
         JSONObject option = new JSONObject();
         option.put("amount",amount*100);
         option.put("currency","INR");
-//        option.put("receipt", receipt);
+
         System.out.println("Razorpay Request Payload:");
         System.out.println(option.toString());
 
-       // option.put("callback_url",CALLBACK_BASE_URL+"/payment/verify");
-//        option.put("callback_method","post");
-
-//        This calls Razorpay server.This calls Razorpay server
             PaymentLink link = razorpayClient.paymentLink.create(option);
             //save the payment
             Payment payment = new Payment();
@@ -80,6 +76,7 @@ public class PaymentService {
             payment.setRazorpayOrderId(link.get("id"));
             payment.setStatus(PaymentStatus.CREATED);
             payment.setCreatedAt(LocalDateTime.now());
+            payment.setEmail(dto.getEmail());
 
             paymentRepository.save(payment);
 
