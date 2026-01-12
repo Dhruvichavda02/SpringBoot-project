@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 import java.util.Optional;
 
-public interface CustomerRepo extends JpaRepository<Customer,Integer> {
+public interface CustomerRepository extends JpaRepository<Customer,Integer> {
 
     Customer findByContactAndActiveTrue(String contact);
     List<Customer> findByActiveTrue();

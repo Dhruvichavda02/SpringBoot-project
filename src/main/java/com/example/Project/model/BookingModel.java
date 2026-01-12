@@ -19,7 +19,7 @@ public class BookingModel {
     private Integer custId;
 
 
-//    @Enumerated(EnumType.STRING)
+   @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 20)
     private BookingCategory category;
 

@@ -4,6 +4,10 @@ import com.example.Project.DTOs.CreateOrderRequest;
 import com.example.Project.DTOs.OrderItemRequest;
 import com.example.Project.model.OrderModel;
 import com.example.Project.service.OrderService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.security.SecurityScheme;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,14 +15,17 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@SecurityRequirement(name="bearerAuth")
 @RestController
 @RequestMapping("/order")
+@Tag(name = "Orders",description = "Order Management Api")
 
 public class OrderController {
 
     @Autowired
     private OrderService orderService;
 
+    @Operation(summary = "Create new order")
     @PostMapping
     public ResponseEntity<?> createOrder(@RequestBody CreateOrderRequest request){
         try{
@@ -29,6 +36,7 @@ public class OrderController {
     }
 
     // get all active orders by table code
+    @Operation(summary = "Get order by tableCode")
     @GetMapping("/table/{tableCode}")
     public ResponseEntity<?> getAllActiveByTableCode(@PathVariable String tableCode){
         try{
@@ -39,6 +47,7 @@ public class OrderController {
     }
 
 
+    @Operation(summary = "Get order by customer Id")
     @GetMapping("/customer/{customerId}")
     public ResponseEntity<?> getOrderByCustomer(@PathVariable Integer customerId){
         try{
@@ -48,6 +57,7 @@ public class OrderController {
         }
     }
 
+    @Operation(summary = "Upadte order")
     @PutMapping("/{orderId}")
     public ResponseEntity<?> updateOrderItems(@PathVariable Integer orderId, @RequestBody List<OrderItemRequest> items){
         try{
@@ -57,6 +67,7 @@ public class OrderController {
         }
     }
 
+    @Operation(summary = "Delete Order")
     @DeleteMapping("/{orderId}")
 
     public ResponseEntity<?> deactivated(@PathVariable Integer orderId){

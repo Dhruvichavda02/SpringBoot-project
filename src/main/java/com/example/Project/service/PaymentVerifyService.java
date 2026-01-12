@@ -1,6 +1,5 @@
 package com.example.Project.service;
 
-import com.example.Project.DTOs.CustomerResponseDTO;
 import com.example.Project.enums.PaymentFor;
 import com.example.Project.enums.PaymentStatus;
 import com.example.Project.model.BookingModel;
@@ -8,7 +7,7 @@ import com.example.Project.model.OrderModel;
 import com.example.Project.model.Payment;
 import com.example.Project.model.customer.Customer;
 import com.example.Project.repository.BookingRepo;
-import com.example.Project.repository.CustomerRepo;
+import com.example.Project.repository.CustomerRepository;
 import com.example.Project.repository.OrderRepository;
 import com.example.Project.repository.PaymentRepository;
 import com.example.Project.service.EmailServices.EmailService;
@@ -45,7 +44,7 @@ public class PaymentVerifyService {
     private EmailService emailService;
 
     @Autowired
-    private CustomerRepo customerRepo;
+    private CustomerRepository customerRepo;
 
     public void verifyAndProcessWebhook(String payload, String signature)
             throws RazorpayException, DocumentException {

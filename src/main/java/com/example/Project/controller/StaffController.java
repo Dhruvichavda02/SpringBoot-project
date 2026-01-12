@@ -5,6 +5,9 @@ import com.example.Project.enums.StaffRole;
 import com.example.Project.model.staff.StaffModel;
 import com.example.Project.service.StaffAttachmentService;
 import com.example.Project.service.StaffServices;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -14,18 +17,20 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.List;
-
+@SecurityRequirement(name="bearerAuth")
 @RestController
 @RequestMapping("/staff")
+@Tag(name = "Staff",description = "Staff Management API")
 public class StaffController {
 
     @Autowired
-    StaffServices staffServices;
+    private StaffServices staffServices;
 
     @Autowired
-    StaffAttachmentService staffAttachmentService;
+    private StaffAttachmentService staffAttachmentService;
 
     //create
+    @Operation(summary = "Register Staff")
     @PostMapping
     public ResponseEntity createStaff(@RequestBody StaffRequest request){
         try {
@@ -35,8 +40,8 @@ public class StaffController {
         }
     }
 
-
     // GET ALL ACTIVE STAFF
+    @Operation(summary = "Get All Staff")
     @GetMapping("/all")
     public List<StaffModel> getAllStaff() {
         return staffServices.getAllStaff();
@@ -44,6 +49,7 @@ public class StaffController {
 
     // GET STAFF BY ID
     @GetMapping("/{id:\\d+}")
+    @Operation(summary = "Get Staff by Id")
     public ResponseEntity getStaffById(@PathVariable Integer id) {
         try {
             return new ResponseEntity(staffServices.getStaffById(id),HttpStatus.OK);
@@ -53,7 +59,8 @@ public class StaffController {
     }
 
     // UPDATE STAFF
-    @PutMapping("/{id:\\d+}")
+    @PutMapping("/{id}")
+    @Operation(summary = "Update Staff")
     public ResponseEntity<?> updateStaff(
             @PathVariable Integer id,
             @RequestBody StaffRequest updatedStaff
@@ -66,7 +73,8 @@ public class StaffController {
     }
 
     // SOFT DELETE STAFF
-    @DeleteMapping("/{id:\\d+}")
+    @DeleteMapping("/{id}")
+    @Operation(summary = "Delete Staff")
     public ResponseEntity<?> deactivateStaff(@PathVariable Integer id) {
         try {
             return new ResponseEntity<>(staffServices.deactiveStaff(id), HttpStatus.OK);

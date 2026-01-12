@@ -7,7 +7,7 @@ import com.example.Project.model.MenuModel;
 import com.example.Project.model.OrderItemsModel;
 import com.example.Project.model.OrderModel;
 import com.example.Project.model.customer.Customer;
-import com.example.Project.repository.CustomerRepo;
+import com.example.Project.repository.CustomerRepository;
 import com.example.Project.repository.MenuRepository;
 import com.example.Project.repository.OrderItemRepository;
 import com.example.Project.repository.OrderRepository;
@@ -15,7 +15,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -31,7 +30,7 @@ public class OrderService {
     private MenuRepository menuRepository;
 
     @Autowired
-    private CustomerRepo customerRepo;
+    private CustomerRepository customerRepo;
 
     @Autowired
     private RestaurantTimingService timingService;

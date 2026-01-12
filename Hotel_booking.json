@@ -1,0 +1,1486 @@
+{
+	"info": {
+		"_postman_id": "d168a1b8-5998-421e-8bb6-3be69fdaa46c",
+		"name": "springboot",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37436747"
+	},
+	"item": [
+		{
+			"name": "Customer",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"contact\": \"3333333333\",\r\n\r\n    \"password\": \"3333333333\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/customer/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customer",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/customer/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customer",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "byId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/customer/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customer",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "upadte",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5OTkxMTEyMjIyIiwiaWF0IjoxNzY3MTYxOTg1LCJleHAiOjE3NjcxNjU1ODV9.eoZeV2z2b6iipSAHWMt5fYbUs7IR5MoieHXsPphL3Jw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \r\n    \"name\" : \"Sydney\",\r\n    \"address\": \"Ahemdabad\",\r\n    \"contact\": \"9991112222\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/customer/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customer",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deactive",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMTExMTExMTExIiwiaWF0IjoxNzY3MTY0OTYzLCJleHAiOjE3NjcxNjg1NjN9.Hy9l6afElj9-rI1lu8jtUG2fFjx3QT6Q7MDrbvcLdhQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/customer/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customer",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "upload",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzMzMzMzMzMzMzIiwiaWF0IjoxNzY4MjEwMjU1LCJleHAiOjE3NjgyMTEzMzV9.BXuOJsrQcS7-We43ZTzBPn--hmardb2N3SpxMdy8ovw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Admin/Downloads/messi.jpeg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/customer/3/upload",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customer",
+								"3",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"contact\" : \"3333333333\",\r\n    \"address\" : \"Italy\",\r\n    \"password\" : \"3333333333\",\r\n    \"name\"  : \"Rachel Green\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/customer/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customer",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Staff",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzMzMzMzMzMzMzIiwiaWF0IjoxNzY4MjEwMjU1LCJleHAiOjE3NjgyMTEzMzV9.BXuOJsrQcS7-We43ZTzBPn--hmardb2N3SpxMdy8ovw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Ramesh\",\r\n    \"date_of_joining\" : \"2025-12-12\",\r\n    \"userId\" : 24,\r\n    \"role\" : \"ADMIN\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/staff",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"staff"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMjIyMjIyMjIyIiwiaWF0IjoxNzY3MTgyNzExLCJleHAiOjE3NjcyNjkxMTF9.A0VsmFlAsgjvSrIxFcITu5jqPxCN82G9YIumD9JU0BE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/staff/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"staff",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMjIyMjIyMjIyIiwiaWF0IjoxNzY3MTgyNzExLCJleHAiOjE3NjcyNjkxMTF9.A0VsmFlAsgjvSrIxFcITu5jqPxCN82G9YIumD9JU0BE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/staff/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"staff",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMjIyMjIyMjIyIiwiaWF0IjoxNzY3MTgyNzExLCJleHAiOjE3NjcyNjkxMTF9.A0VsmFlAsgjvSrIxFcITu5jqPxCN82G9YIumD9JU0BE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Moritzou\",\r\n  \"role\": \"ADMIN\",\r\n  \"date_of_joining\": \"2025-01-01\",\r\n  \"userId\": 18\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/staff/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"staff",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deactive",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMjIyMjIyMjIyIiwiaWF0IjoxNzY3MTgyNzExLCJleHAiOjE3NjcyNjkxMTF9.A0VsmFlAsgjvSrIxFcITu5jqPxCN82G9YIumD9JU0BE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/staff/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"staff",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "upload",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "filterbyRole",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzMzMzMzMzMzMzIiwiaWF0IjoxNzY4MjExMzg4LCJleHAiOjE3NjgyMTI0Njh9.bLUtF7TFC9mlNLtZzODcBOtbLaiDosmQF72UiNffGwI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/staff/ADMIN",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"staff",
+								"ADMIN"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Booking",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMjIyMjIyMjIyIiwiaWF0IjoxNzY3NTg4ODQ0LCJleHAiOjE3Njc1ODk5MjR9.q7_aWv9bhw67zBoe5VWylAkYin3Y8k6RjJrIOqSV8zU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"custId\": 6,\r\n  \"category\": \"ROOM\",\r\n  \"amount\": 3000,\r\n  \"startDate\": \"2026-01-10\",\r\n  \"endDate\": \"2026-01-12\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/bookings",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bookings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMjIyMjIyMjIyIiwiaWF0IjoxNzY3NzA3MTA1LCJleHAiOjE3Njc3MDgxODV9.Db1Npr0lRqRWsdTNyTBT_eAeLQcQAKRC-zzCrnvBJGY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/bookings/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bookings",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "wedding booking",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMjIyMjIyMjIyIiwiaWF0IjoxNzY3NzY2ODE1LCJleHAiOjE3Njc3Njc4OTV9.i2rtZB0MYtZgm7LLDTaqmYtVcScegUlYVDAiXrelBK0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"custId\": 6,\r\n  \"category\": \"WEDDING\",\r\n  \"amount\": 3000,\r\n  \"startDate\": \"2026-03-10\",\r\n  \"endDate\": \"2026-03-12\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/bookings",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bookings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "conflict",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzMzMzMzMzMzMzIiwiaWF0IjoxNzY4MjA1MTYxLCJleHAiOjE3NjgyMDYyNDF9.C6RFaf5yJu2_H0qmiBnNq8x-K2YMG7iEDq9hgN6Cn_8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"custId\": 7,\r\n  \"category\": \"WEDDING\",\r\n  \"amount\": 3000,\r\n  \"startDate\": \"2026-01-06\",\r\n  \"endDate\": \"2026-01-07\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/bookings",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bookings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Wedding conflict",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMjIyMjIyMjIyIiwiaWF0IjoxNzY3NzY4MzE0LCJleHAiOjE3Njc3NjkzOTR9.jYHCngrNcTNs45u13hO3vpn0LnFqShElv6eLMwBInug",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"custId\": 7,\r\n  \"category\": \"WEDDING\",\r\n  \"amount\": 3000,\r\n  \"startDate\": \"2026-02-10\",\r\n  \"endDate\": \"2026-02-12\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/bookings",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bookings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Room conflict",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMjIyMjIyMjIyIiwiaWF0IjoxNzY3NzY4MzE0LCJleHAiOjE3Njc3NjkzOTR9.jYHCngrNcTNs45u13hO3vpn0LnFqShElv6eLMwBInug",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"custId\": 7,\r\n  \"category\": \"ROOM\",\r\n  \"amount\": 3000,\r\n  \"startDate\": \"2026-02-10\",\r\n  \"endDate\": \"2026-02-12\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/bookings",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bookings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cancel",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzMzMzMzMzMzMzIiwiaWF0IjoxNzY4MjEyNjUzLCJleHAiOjE3NjgyMTM3MzN9.pynNa5HmRWBhrVB-rcTQW3izjxqVaxHzcDiSd5LTEIk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"custId\": 7,\r\n  \"category\": \"WEDDING\",\r\n  \"amount\": 3000,\r\n  \"startDate\": \"2026-01-06\",\r\n  \"endDate\": \"2026-01-07\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/bookings/8/cancel",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bookings",
+								"8",
+								"cancel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Email",
+			"item": [
+				{
+					"name": "sendSimpleMail",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMjIyMjIyMjIyIiwiaWF0IjoxNzY3NTk0MDQ2LCJleHAiOjE3Njc1OTUxMjZ9.oY9Rk9fio7jH8atUhQiGks9X-QZwXUYRoYWJORkZeFk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"recipient\": \"user@example.com\",\r\n  \"subject\": \"Welcome \",\r\n  \"msgBody\": \"Hello! Your order is confirmed!\",\r\n  \"attachment\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/email-send/sendMail",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"email-send",
+								"sendMail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sendMailWithAttachment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMjIyMjIyMjIyIiwiaWF0IjoxNzY3NTk3NDMzLCJleHAiOjE3Njc1OTg1MTN9.yJamUvQoORUfPKTvc75hlmcfnH8fYc6t1THsyB_iNpA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "to",
+									"value": "yourmail@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "subject",
+									"value": "Cloud certificate",
+									"type": "text"
+								},
+								{
+									"key": "message",
+									"value": "Please find attached",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Admin/Downloads/NOC25CS120S567200041 (1).pdf"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/email-send/mailWithAttachment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"email-send",
+								"mailWithAttachment"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Resource",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMjIyMjIyMjIyIiwiaWF0IjoxNzY3NjA3NDE4LCJleHAiOjE3Njc2MDg0OTh9.RyAUwpibH6fNhB_OKveg_JI777dcroGBzlsWbb1vtTY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"category\" : \"TABLE\",\r\n    \"code\" : \"t-101\",\r\n    \"capacity\" : \"4\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/resources",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"resources"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Menu",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMjIyMjIyMjIyIiwiaWF0IjoxNzY3Nzk1MTM3LCJleHAiOjE3Njc3OTYyMTd9.fWoPMRD-9J3kZyRN_sgVxfNKdSj3HbP5HIAaU_OVgpI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Alfredo\",\r\n  \"price\": 450,\r\n  \"description\": \"reamy Alfredo Pasta\"\r\n  \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/menu",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"menu"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMjIyMjIyMjIyIiwiaWF0IjoxNzY3Nzk1MTM3LCJleHAiOjE3Njc3OTYyMTd9.fWoPMRD-9J3kZyRN_sgVxfNKdSj3HbP5HIAaU_OVgpI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/menu/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"menu",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ALL",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMjIyMjIyMjIyIiwiaWF0IjoxNzY3Nzk1MTM3LCJleHAiOjE3Njc3OTYyMTd9.fWoPMRD-9J3kZyRN_sgVxfNKdSj3HbP5HIAaU_OVgpI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/menu/allactive",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"menu",
+								"allactive"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMjIyMjIyMjIyIiwiaWF0IjoxNzY3Nzk1MTM3LCJleHAiOjE3Njc3OTYyMTd9.fWoPMRD-9J3kZyRN_sgVxfNKdSj3HbP5HIAaU_OVgpI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\" : 2,\r\n  \"name\": \"Alfredo\",\r\n  \"price\": 450,\r\n  \"description\": \"Creamy Alfredo Pasta\"\r\n  \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/menu",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"menu"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzMzMzMzMzMzMzIiwiaWF0IjoxNzY4MjA1MTYxLCJleHAiOjE3NjgyMDYyNDF9.C6RFaf5yJu2_H0qmiBnNq8x-K2YMG7iEDq9hgN6Cn_8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"customerId\": 7,\r\n  \"tableCode\": \"t-101\",\r\n  \"items\": [\r\n    { \"menuId\": 1, \"quantity\": 2 },\r\n    { \"menuId\": 2, \"quantity\": 5 }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/order",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get order by table",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzMzMzMzMzMzMzIiwiaWF0IjoxNzY4MjEwMjU1LCJleHAiOjE3NjgyMTEzMzV9.BXuOJsrQcS7-We43ZTzBPn--hmardb2N3SpxMdy8ovw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/order/table/t-101",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"order",
+								"table",
+								"t-101"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Order by customer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzMzMzMzMzMzMzIiwiaWF0IjoxNzY4MjExMzg4LCJleHAiOjE3NjgyMTI0Njh9.bLUtF7TFC9mlNLtZzODcBOtbLaiDosmQF72UiNffGwI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/order/customer/9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"order",
+								"customer",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMjIyMjIyMjIyIiwiaWF0IjoxNzY3ODY0NDgyLCJleHAiOjE3Njc4NjU1NjJ9.635Xd3mVb3L6p1yiZPH2GkqV45RGtvqxosUysdRKFp8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {\r\n    \"menuId\": 1,\r\n    \"quantity\": 3\r\n  },\r\n  {\r\n    \"menuId\": 2,\r\n    \"quantity\": 3\r\n  }\r\n]\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/order/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"order",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deactivate",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMjIyMjIyMjIyIiwiaWF0IjoxNzY3ODY0NDgyLCJleHAiOjE3Njc4NjU1NjJ9.635Xd3mVb3L6p1yiZPH2GkqV45RGtvqxosUysdRKFp8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {\r\n    \"menuId\": 1,\r\n    \"quantity\": 3\r\n  },\r\n  {\r\n    \"menuId\": 2,\r\n    \"quantity\": 3\r\n  }\r\n]\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/order/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"order",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ordering after the closing",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzMzMzMzMzMzMzIiwiaWF0IjoxNzY4MjA1MTYxLCJleHAiOjE3NjgyMDYyNDF9.C6RFaf5yJu2_H0qmiBnNq8x-K2YMG7iEDq9hgN6Cn_8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"customerId\": 8,\r\n  \"tableCode\": \"t-101\",\r\n  \"items\": [\r\n    { \"menuId\": 1, \"quantity\": 2 },\r\n    { \"menuId\": 2, \"quantity\": 1 }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/order",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"order"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "OrderItems",
+			"item": [
+				{
+					"name": "Add Item",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMjIyMjIyMjIyIiwiaWF0IjoxNzY3ODY0NDgyLCJleHAiOjE3Njc4NjU1NjJ9.635Xd3mVb3L6p1yiZPH2GkqV45RGtvqxosUysdRKFp8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"menuId\": 2,\r\n  \"quantity\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/order-items/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"order-items",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update item",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMjIyMjIyMjIyIiwiaWF0IjoxNzY3ODY1NzcyLCJleHAiOjE3Njc4NjY4NTJ9.zT1LahE49FDyHPAr2wMmM-q_DIK79Id1H-4fW6LwxsE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"quantity\" : 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/order-items/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"order-items",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove item",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMjIyMjIyMjIyIiwiaWF0IjoxNzY3ODY1NzcyLCJleHAiOjE3Njc4NjY4NTJ9.zT1LahE49FDyHPAr2wMmM-q_DIK79Id1H-4fW6LwxsE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/order-items/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"order-items",
+								"10"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Payment",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMjIyMjIyMjIyIiwiaWF0IjoxNzY3OTM4Nzc1LCJleHAiOjE3Njc5Mzk4NTV9.KKjQS433x0bJukwca9gy-idU3I9f-95fpRBqjfyLePE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"paymentFor\": \"BOOKING\",\r\n  \"referenceId\": 8,\r\n  \"amount\": 3000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/payment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"payment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMjIyMjIyMjIyIiwiaWF0IjoxNzY3OTYxNzAzLCJleHAiOjE3Njc5NjI3ODN9.XiQ_KBDSlo9EoTX9W7gPhjUsgEcpWmAqI59jmqwef6A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"referenceId\": 6,\r\n  \"paymentFor\": \"ORDER\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/payment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"payment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Payment with invoice",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Restaurant Timing",
+			"item": [
+				{
+					"name": "set Time",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzMzMzMzMzMzMzIiwiaWF0IjoxNzY4MjAzNjg1LCJleHAiOjE3NjgyMDQ3NjV9.gRv19kgHVnw-tsMdV66EvQQ7L1I-lrPpqKl44zkFijo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"openTime\": \"09:00\",\r\n  \"closeTime\": \"23:00\",\r\n  \"open\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/admin/restaurant",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"restaurant"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxOTk5OTk5OTk5IiwiaWF0IjoxNzY3MTg5MzE1LCJleHAiOjE3NjcxOTAzOTV9.rvwtMrVIc8TifA4tw2yykCk2yUyIpqv11MMV_EEyMZY",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

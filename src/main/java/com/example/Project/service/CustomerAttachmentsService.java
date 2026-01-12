@@ -4,7 +4,7 @@ package com.example.Project.service;
 import com.example.Project.model.customer.Customer;
 import com.example.Project.model.customer.CustomerAttachment;
 import com.example.Project.repository.CustomerAttachmentsRepo;
-import com.example.Project.repository.CustomerRepo;
+import com.example.Project.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -21,7 +21,7 @@ public class CustomerAttachmentsService {
     @Autowired
     CustomerAttachmentsRepo customerAttachmentsRepo;
     @Autowired
-    CustomerRepo customerRepo;
+    CustomerRepository customerRepo;
 
     public CustomerAttachment uploadFile(Integer id, MultipartFile file) throws IOException {
          // to check if the customer exist or not

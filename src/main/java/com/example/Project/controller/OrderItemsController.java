@@ -2,13 +2,18 @@ package com.example.Project.controller;
 
 import com.example.Project.DTOs.OrderItemRequest;
 import com.example.Project.service.OrderItemService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@SecurityRequirement(name="bearerAuth")
 @RestController
 @RequestMapping("/order-items")
+@Tag(name = "OrderItem",description = "OrderItem Management API")
 public class OrderItemsController {
 
     @Autowired
@@ -16,6 +21,7 @@ public class OrderItemsController {
 
     // Add new item to an existing order
     @PostMapping("/{orderId}")
+    @Operation(summary = "Add Item")
     public ResponseEntity<?> addItem(
             @PathVariable Integer orderId,
             @RequestBody OrderItemRequest request) {
@@ -31,6 +37,7 @@ public class OrderItemsController {
 
     //  Update quantity of an existing item
     @PutMapping("/{itemId}")
+    @Operation(summary = "Update Item")
     public ResponseEntity<?> updateQuantity(
             @PathVariable Integer itemId,
             @RequestBody OrderItemRequest req) {
@@ -46,6 +53,7 @@ public class OrderItemsController {
 
     // Remove an item from order
     @DeleteMapping("/{itemId}")
+    @Operation(summary = "Delete Item")
     public ResponseEntity<?> deleteItem(@PathVariable Integer itemId) {
         try {
             orderItemService.removeItem(itemId);

@@ -6,7 +6,7 @@ import com.example.Project.DTOs.LoginRes;
 import com.example.Project.DTOs.RegisterRequest;
 import com.example.Project.model.customer.Customer;
 import com.example.Project.model.UserMST;
-import com.example.Project.repository.CustomerRepo;
+import com.example.Project.repository.CustomerRepository;
 import com.example.Project.repository.UserMstRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -21,7 +21,7 @@ public class AuthService {
     @Autowired
     private UserMstRepo userRepo;
     @Autowired
-    private CustomerRepo customerRepo;
+    private CustomerRepository customerRepo;
     @Autowired
     private AuthenticationManager authenticationManager;
 
