@@ -3,6 +3,7 @@ package com.example.Project.model;
 import com.example.Project.enums.PaymentFor;
 import com.example.Project.enums.PaymentStatus;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Pattern;
 
 import java.time.LocalDateTime;
 
@@ -19,6 +20,13 @@ public class Payment {
     @Enumerated(EnumType.STRING)
     @Column(name = "payment_for", columnDefinition = "payment_for")
     private PaymentFor paymentFor;
+
+    @Column(nullable = false)
+    @Pattern(
+            regexp = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$",
+            message = "Invalid Email"
+    )
+    private  String email;
 
     private Double amount;
     private String razorpayOrderId;
@@ -91,5 +99,14 @@ public class Payment {
 
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
+    }
+
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

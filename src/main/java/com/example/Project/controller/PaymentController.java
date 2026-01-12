@@ -32,17 +32,6 @@ public class PaymentController {
         }
     }
 
-    //verify payment
-//    @PostMapping(value = "/verify", consumes = "application/x-www-form-urlencoded")
-//    public ResponseEntity<?> verifyPaymnet(@RequestParam Map<String,String> payload){
-//        try{
-//            System.out.println("Razorpay Callback:");
-//            payload.forEach((k, v) -> System.out.println(k + " : " + v));
-//            paymentVerifyService.handleCallback(payload);
-//            return new ResponseEntity( "Payment processed",HttpStatus.OK);
-//        } catch (Exception e) {
-//            return new ResponseEntity(e.getMessage(), HttpStatus.OK);
-//        }
-//    }
+
 
 }
