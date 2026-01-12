@@ -14,6 +14,7 @@ import com.example.Project.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -32,8 +33,18 @@ public class OrderService {
     @Autowired
     private CustomerRepo customerRepo;
 
+    @Autowired
+    private RestaurantTimingService timingService;
+
     //create order
     public OrderResponseDTO createOrder(Integer customerId, String tableCode, List<OrderItemRequest> items){
+
+        if(!timingService.isRestaurantOpen()){
+            throw new RuntimeException(
+                    "Restaurant is currently closed. Please order during working hours."
+            );
+        }
+
         //validate customer
         Customer customer = customerRepo.findByIdAndActiveTrue(customerId)
                 .orElseThrow(() -> new RuntimeException("Customer not found"));
@@ -45,6 +56,7 @@ public class OrderService {
 
         order = orderRepository.save(order);
 
+        List<OrderItemsModel> orderItems = new ArrayList<>();
         double total = 0;
 
         for (OrderItemRequest req : items) {
@@ -59,9 +71,11 @@ public class OrderService {
             item.setPrice(menu.getPrice());
 
             total += req.getQuantity() * menu.getPrice();
-            orderItemRepository.save(item);
+//            orderItemRepository.save(item);
+            orderItems.add(item);
         }
 
+        order.setItems(orderItems);
         order.setAmount(total);
         order = orderRepository.save(order);
 
@@ -93,6 +107,7 @@ public class OrderService {
         if(!order.getActive()){
             throw new RuntimeException("order is InActive");
         }
+        order.getItems().clear(); //  remove old items
 
         //delete existing item
         orderItemRepository.deleteByOrderId(orderId);
