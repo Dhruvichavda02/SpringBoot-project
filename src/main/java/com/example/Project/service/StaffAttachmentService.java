@@ -20,7 +20,7 @@ public class StaffAttachmentService {
     private StaffRepo staffRepo;
 
 
-    private static final String Upload_dir = System.getProperty("user.dir")+"/uploads/staff";
+    private static final String uploadDir = System.getProperty("user.dir")+"/uploads/staff";
 
 
     public StaffAttachmentModel uploadFile(Integer userId, MultipartFile file) throws IOException {
@@ -29,13 +29,13 @@ public class StaffAttachmentService {
                 .orElseThrow(() ->
                         new RuntimeException("Staff not registered for this user"));
         //create folder
-        File dir = new File(Upload_dir);
+        File dir = new File(uploadDir);
         if(!dir.exists()){
             dir.mkdirs();
         }
 
         String filename = System.currentTimeMillis() + "_" + file.getOriginalFilename();
-        String filepath = Upload_dir + File.separator + filename;
+        String filepath = uploadDir + File.separator + filename;
 
         file.transferTo(new File(filepath));
         //save path to db

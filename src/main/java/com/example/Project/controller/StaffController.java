@@ -1,6 +1,7 @@
 package com.example.Project.controller;
 
 import com.example.Project.DTOs.StaffRequest;
+import com.example.Project.enums.StaffRole;
 import com.example.Project.model.staff.StaffModel;
 import com.example.Project.service.StaffAttachmentService;
 import com.example.Project.service.StaffServices;
@@ -75,16 +76,16 @@ public class StaffController {
     }
 
 
-//    // GET ALL ACTIVE STAFF
-//    @GetMapping
-//    public ResponseEntity<List<StaffModel>> getStaff(
-//            @RequestParam(required = false) StaffRole role
-//    ) {
-//        if (role != null) {
-//            return ResponseEntity.ok(staffServices.FilterByRole(role));
-//        }
-//        return ResponseEntity.ok(staffServices.getAllStaff());
-//    }
+    // GET staff by filter
+    @GetMapping("/{role}")
+    public ResponseEntity<List<StaffModel>> getStaff(
+            @PathVariable StaffRole role
+    ) {
+        if (role != null) {
+            return ResponseEntity.ok(staffServices.FilterByRole(role));
+        }
+        return ResponseEntity.ok(staffServices.getAllStaff());
+    }
 
 
     // upload attachment

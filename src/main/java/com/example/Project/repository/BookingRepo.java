@@ -13,20 +13,18 @@ import java.util.List;
 import java.util.Optional;
 
 public interface BookingRepo extends JpaRepository<BookingModel,Integer> {
-
-    // room
-    @Query(value = """
-       select  count(*) from booking b
-              where resource_id = :resourceId
-                     and b.status = 'CONFIRMED'
-                     and (b.start_date <:endDate
-                     and b.end_date > :startDate) 
-       """,nativeQuery = true)
-    int checkOverlap(
-            Integer resourceId,
-            LocalDate startDate,
-            LocalDate endDate
-    );
+//    @Query(value = """
+//       select  count(*) from booking b
+//              where resource_id = :resourceId
+//                     and b.status = 'CONFIRMED'
+//                     and (b.start_date <:endDate
+//                     and b.end_date > :startDate)
+//       """,nativeQuery = true)
+//    int checkOverlap(
+//            Integer resourceId,
+//            LocalDate startDate,
+//            LocalDate endDate
+//    );
 
     //room : cron job to checkout at 10:00 AM
 
@@ -40,8 +38,8 @@ public interface BookingRepo extends JpaRepository<BookingModel,Integer> {
     List<BookingModel> findExpiredBookings();
 
 
-    @Query(value = """
-    select * from booking where id = :bookingId and active= true
-""",nativeQuery = true)
-    Optional<BookingModel> findByIdAndActive(Integer bookingId);
+//    @Query(value = """
+//    select * from booking where id = :bookingId and active= true
+//""",nativeQuery = true)
+//    Optional<BookingModel> findByIdAndActive(Integer bookingId);
 }

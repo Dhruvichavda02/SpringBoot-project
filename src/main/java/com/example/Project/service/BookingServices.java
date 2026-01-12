@@ -21,60 +21,6 @@ public class BookingServices {
     @Autowired
     private ResourceMstRepository resourceMstRepository;
 
-//    //create
-//    public BookingModel createBooking(BookingModel booking ){
-//
-//        booking.setBookingDate(LocalDate.now());
-//        if(booking.getCategory() == BookingCategory.ROOM ||booking.getCategory() == BookingCategory.WEDDING){
-//
-//            boolean exits = repo.existsByCategoryAndStartDateLessThanAndEndDateGreaterThan(
-//                    booking.getCategory(),
-//                    booking.getStartDate(),
-//                    booking.getEndDate()
-//            );
-//
-//            if(exits){
-//                throw new RuntimeException(booking.getCategory()+" already booked!");
-//            }
-//
-//        }
-//        return repo.save(booking);
-//    }
-//
-//
-//    //read
-//    public BookingModel getBookingById(Integer id){
-//        return repo.findById(id).orElseThrow(()-> new RuntimeException("Booking not found!"));
-//    }
-//
-//    public List<BookingModel> getAllBooking(){
-//        return repo.findAll();
-//    }
-//
-//    public List<BookingModel> getByCategory(BookingCategory category) {
-//        return repo.findByCategory(category);
-//    }
-//    // Update
-//    public BookingModel updateById(Integer id,BookingModel booking){
-//
-//        BookingModel existing = getBookingById(id);
-//
-//
-//        existing.setCategory(booking.getCategory());
-//        existing.setAmount(booking.getAmount());
-//        existing.setBookingDate(booking.getBookingDate());
-//        existing.setStartDate(booking.getStartDate());
-//        existing.setEndDate(booking.getEndDate());
-//
-//        return repo.save(existing);
-//    }
-//
-//    /* DELETE */
-//    public void deleteBooking(Integer id) {
-//        repo.deleteById(id);
-//    }
-
-
 
     public BookingModel createBooking(BookingModel booking) {
 
@@ -109,6 +55,7 @@ public class BookingServices {
     }
 
     //cron usage
+
     public void completeExpiredBooking(){
         List<BookingModel> bookings = Bookingrepo.findExpiredBookings();
 

@@ -15,8 +15,7 @@ import java.io.IOException;
 @Service
 public class CustomerAttachmentsService {
 
-    private static final String Upload_dir =
-            System.getProperty("user.dir") + "/uploads/customers/";
+    private static final String Upload_dir = System.getProperty("user.dir") + "/uploads/customers/";
 
 
     @Autowired
