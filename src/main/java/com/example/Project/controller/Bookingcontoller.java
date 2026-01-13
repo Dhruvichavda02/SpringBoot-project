@@ -22,7 +22,7 @@ public class Bookingcontoller {
     @Autowired
     private BookingServices bookingService;
 
-    @PostMapping
+    @PostMapping("/create")
     @Operation(summary = "Creation of Booking")
     public ResponseEntity<?> createBooking(@RequestBody BookingModel booking) {
         try {
@@ -33,7 +33,7 @@ public class Bookingcontoller {
         }
 
 
-    @GetMapping("/{id}")
+    @GetMapping("/getById/{id}")
     @Operation(summary = "Get Booking by Id")
     public ResponseEntity<?> getById(@PathVariable Integer id){
         try {

@@ -25,7 +25,7 @@ public class PaymentController {
     private PaymentService paymentService;
 
     //create
-    @PostMapping
+    @PostMapping("/createLink")
     @Operation(summary = "Payment link creation")
     public ResponseEntity<?> createPayment(@RequestBody CreatePaymentDTO dto){
         try{

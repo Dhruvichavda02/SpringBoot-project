@@ -26,7 +26,7 @@ public class ResourceMstController {
     private ResourceMstService resourceMstService;
 
 
-    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/create",consumes = MediaType.APPLICATION_JSON_VALUE)
     @Operation(summary = "Creation of Resource")
     public ResponseEntity create(@RequestBody ResourceMstModel model) {
         try {
@@ -43,14 +43,14 @@ public class ResourceMstController {
         return  resourceMstService.getAll();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/getById/{id}")
     @Operation(summary = "Get resource by id")
     public ResponseEntity getResourceById(@PathVariable Integer id){
         return new ResponseEntity(resourceMstService.getById(id),HttpStatus.OK);
     }
 
     //Update
-    @PutMapping("/{id}")
+    @PutMapping("/update/{id}")
     @Operation(summary = "Update resource")
     public  ResponseEntity update( @RequestBody ResourceMstModel model,@PathVariable Integer id){
         try{
@@ -60,7 +60,7 @@ public class ResourceMstController {
         }
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/delete/{id}")
     @Operation(summary = "Deactive resource")
     public ResponseEntity DeactiveCustomer(@PathVariable Integer id){
         try{

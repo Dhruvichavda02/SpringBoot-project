@@ -26,7 +26,7 @@ public class OrderController {
     private OrderService orderService;
 
     @Operation(summary = "Create new order")
-    @PostMapping
+    @PostMapping("/create")
     public ResponseEntity<?> createOrder(@RequestBody CreateOrderRequest request){
         try{
             return new ResponseEntity<>(orderService.createOrder(request.getCustomerId(),request.getTableCode(),request.getItems()), HttpStatus.OK);
@@ -58,7 +58,7 @@ public class OrderController {
     }
 
     @Operation(summary = "Upadte order")
-    @PutMapping("/{orderId}")
+    @PutMapping("/update/{orderId}")
     public ResponseEntity<?> updateOrderItems(@PathVariable Integer orderId, @RequestBody List<OrderItemRequest> items){
         try{
             return new ResponseEntity<>(orderService.updateOrderItems(orderId,items), HttpStatus.OK);
@@ -68,7 +68,7 @@ public class OrderController {
     }
 
     @Operation(summary = "Delete Order")
-    @DeleteMapping("/{orderId}")
+    @DeleteMapping("/delete/{orderId}")
 
     public ResponseEntity<?> deactivated(@PathVariable Integer orderId){
         try{

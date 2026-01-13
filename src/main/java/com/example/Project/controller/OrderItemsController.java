@@ -20,7 +20,7 @@ public class OrderItemsController {
     private OrderItemService orderItemService;
 
     // Add new item to an existing order
-    @PostMapping("/{orderId}")
+    @PostMapping("/addItem/{orderId}")
     @Operation(summary = "Add Item")
     public ResponseEntity<?> addItem(
             @PathVariable Integer orderId,
@@ -36,7 +36,7 @@ public class OrderItemsController {
     }
 
     //  Update quantity of an existing item
-    @PutMapping("/{itemId}")
+    @PutMapping("/updateItem/{itemId}")
     @Operation(summary = "Update Item")
     public ResponseEntity<?> updateQuantity(
             @PathVariable Integer itemId,
@@ -52,7 +52,7 @@ public class OrderItemsController {
     }
 
     // Remove an item from order
-    @DeleteMapping("/{itemId}")
+    @DeleteMapping("/remove/{itemId}")
     @Operation(summary = "Delete Item")
     public ResponseEntity<?> deleteItem(@PathVariable Integer itemId) {
         try {

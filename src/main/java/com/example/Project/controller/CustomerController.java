@@ -62,14 +62,14 @@ public class CustomerController {
     }
 
 
-    @GetMapping("/{id}")
+    @GetMapping("/getById/{id}")
     @Operation(summary = "Get Customer by Id")
     public ResponseEntity getCustomerById(@PathVariable Integer id){
         return new ResponseEntity(customerSevice.getCustomerById(id),HttpStatus.OK);
     }
 
     //Update
-    @PutMapping("/{id}")
+    @PutMapping("/update/{id}")
     @Operation(summary = "Customer update")
     public  ResponseEntity update(@PathVariable Integer id, @RequestBody Customer customer){
         try{
@@ -79,7 +79,7 @@ public class CustomerController {
         }
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/delete/{id}")
     @Operation(summary = "Deactive customer")
     public ResponseEntity DeactiveCustomer(@PathVariable Integer id){
         try{

@@ -31,7 +31,7 @@ public class StaffController {
 
     //create
     @Operation(summary = "Register Staff")
-    @PostMapping
+    @PostMapping("/register")
     public ResponseEntity createStaff(@RequestBody StaffRequest request){
         try {
             return new ResponseEntity<>(staffServices.createStaff(request), HttpStatus.CREATED);
@@ -48,7 +48,7 @@ public class StaffController {
     }
 
     // GET STAFF BY ID
-    @GetMapping("/{id:\\d+}")
+    @GetMapping("/{id}")
     @Operation(summary = "Get Staff by Id")
     public ResponseEntity getStaffById(@PathVariable Integer id) {
         try {

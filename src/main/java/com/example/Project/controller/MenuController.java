@@ -19,7 +19,7 @@ public class MenuController {
     @Autowired
     private MenuService menuService;
 
-    @PostMapping
+    @PostMapping(value = "/create")
     @Operation(summary = "Menu Creation")
     public ResponseEntity<?> createMenu(@RequestBody MenuModel menu){
         try{
@@ -29,7 +29,7 @@ public class MenuController {
         }
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/getById/{id}")
     @Operation(summary = "Get Menu By Id")
     public ResponseEntity<?> getById(@PathVariable Integer id){
         try{
@@ -49,7 +49,7 @@ public class MenuController {
         }
     }
 
-    @PutMapping
+    @PutMapping(value = "/update")
     @Operation(summary = "Update Menu")
      public ResponseEntity<?>  updateMenu(@RequestBody MenuModel menu){
         try{
@@ -59,7 +59,7 @@ public class MenuController {
         }
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
     @Operation(summary = "Delete Menu")
     public ResponseEntity<?>  DeleteMenu(@PathVariable Integer id){
         try{
