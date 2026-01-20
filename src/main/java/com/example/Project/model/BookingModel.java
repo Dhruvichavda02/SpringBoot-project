@@ -47,7 +47,11 @@ public class BookingModel {
     @Column(name = "payments_status")
     private PaymentStatus paymentStatus;
 
+    @Column(name = "quantity",nullable = false)
+    private Integer quantity;
 
+    @Column(name = "capacity",nullable = false)
+    private Integer capacity;
 
     public Integer getId() {
         return id;
@@ -127,5 +131,21 @@ public class BookingModel {
 
     public void setPaymentStatus(PaymentStatus paymentStatus) {
         this.paymentStatus = paymentStatus;
+    }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+
+    public Integer getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(Integer capacity) {
+        this.capacity = capacity;
     }
 }

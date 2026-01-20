@@ -51,6 +51,16 @@ public class Bookingcontoller {
         return ResponseEntity.ok("Booking cancelled successfully");
     }
 
+    @GetMapping("/getAll")
+    @Operation(summary = "Get all booking")
+    public ResponseEntity<?> getAll(){
+        try {
+            return new ResponseEntity<>(bookingService.getAll(), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.OK);
+        }
+
+    }
 
 
 }

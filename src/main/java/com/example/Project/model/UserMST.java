@@ -2,17 +2,12 @@ package com.example.Project.model;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Pattern;
 
 @Entity
 @Table(name = "Usermst")
 public class UserMST {
     public UserMST() {
-    }
-
-    public UserMST(Integer id, String username, String password) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
     }
 
     @Id
@@ -23,6 +18,7 @@ public class UserMST {
     private String username;
 
     @Column(nullable = false)
+    @Pattern(regexp = " ^(?=.*[0-9])(?=.*[A-Z])(?=\\S+$).{8,20}$",message = "Password must be min 8 and max 20 length, containing at least 1 uppercase, 1 lowercase, 1 special character, and 1 digit")
     private String password;
 
     public Integer getId() {

@@ -22,25 +22,6 @@ public class EmailServiceImpl implements EmailService{
     @Autowired
     private JavaMailSender javaMailSender; // built in emailSender
 
-//    @Override
-//    public String sendSimpleMail(EmailDetails details) {
-//        try{
-//            SimpleMailMessage mailMessage = new SimpleMailMessage();
-//
-//            mailMessage.setFrom(sender);
-//            mailMessage.setTo(details.getRecipient());
-//            mailMessage.setSubject(details.getSubject());
-//            mailMessage.setText(details.getMsgBody());
-//
-//            javaMailSender.send(mailMessage);
-//            //Converts message to SMTP format-->Connects to SMTP Server-->Authenticates using username/password-->Sends email
-//
-//            return "Mail sent successfully";
-//        }catch (Exception e){
-//            return "Error while sending mail"+e.getMessage();
-//        }
-//    }
-
     @Override
     public String sendMailWithAttachment(Customer customer, Payment payment, byte[] invoicePdf) {
         try{
