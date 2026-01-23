@@ -6,6 +6,7 @@ import com.example.Project.enums.PaymentStatus;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "booking")
@@ -35,9 +36,9 @@ public class BookingModel {
     @Column(nullable = false)
     private Double amount;
 
-    @ManyToOne
-    @JoinColumn(name = "resource_id")
-    private ResourceMstModel resourceId;
+    @ManyToMany
+    @JoinTable(name = "booking_resource",joinColumns = @JoinColumn(name="booking_id"),inverseJoinColumns = @JoinColumn(name = "resource_id"))
+    private List<ResourceMstModel> resourceId;
 
     @Enumerated(EnumType.STRING)
     @Column
@@ -109,11 +110,11 @@ public class BookingModel {
         this.amount = amount;
     }
 
-    public ResourceMstModel getResourceId() {
+    public List<ResourceMstModel> getResourceId() {
         return resourceId;
     }
 
-    public void setResourceId(ResourceMstModel resourceId) {
+    public void setResourceId(List<ResourceMstModel> resourceId) {
         this.resourceId = resourceId;
     }
 

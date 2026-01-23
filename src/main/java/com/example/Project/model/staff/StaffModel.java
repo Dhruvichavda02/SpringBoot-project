@@ -2,6 +2,7 @@ package com.example.Project.model.staff;
 
 
 import com.example.Project.enums.StaffRole;
+import com.example.Project.enums.StaffStatus;
 import com.example.Project.model.UserMST;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
@@ -32,14 +33,9 @@ public class StaffModel {
     @Enumerated(EnumType.STRING)
     private StaffRole role;
 
-    public StaffModel(Integer id, String name, Boolean active, LocalDate date_of_joining, UserMST user, StaffRole role) {
-        this.id = id;
-        this.name = name;
-        this.active = active;
-        this.date_of_joining = date_of_joining;
-        this.user = user;
-        this.role = role;
-    }
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status")
+    private StaffStatus status= StaffStatus.AVAILABLE;
 
     public StaffModel() {
     }
@@ -90,5 +86,13 @@ public class StaffModel {
 
     public void setRole(StaffRole role) {
         this.role = role;
+    }
+
+    public StaffStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(StaffStatus status) {
+        this.status = status;
     }
 }

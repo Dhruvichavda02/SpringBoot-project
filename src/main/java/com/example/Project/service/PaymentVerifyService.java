@@ -6,7 +6,7 @@ import com.example.Project.model.BookingModel;
 import com.example.Project.model.OrderModel;
 import com.example.Project.model.Payment;
 import com.example.Project.model.customer.Customer;
-import com.example.Project.repository.BookingRepo;
+import com.example.Project.repository.BookingRepository;
 import com.example.Project.repository.CustomerRepository;
 import com.example.Project.repository.OrderRepository;
 import com.example.Project.repository.PaymentRepository;
@@ -32,7 +32,7 @@ public class PaymentVerifyService {
     private PaymentRepository paymentRepository;
 
     @Autowired
-    private BookingRepo bookingRepo;
+    private BookingRepository bookingRepository;
 
     @Autowired
     private OrderRepository orderRepository;
@@ -91,11 +91,11 @@ public class PaymentVerifyService {
 
         Customer customer;
         if (payment.getPaymentFor() == PaymentFor.BOOKING) {
-            BookingModel booking = bookingRepo
+            BookingModel booking = bookingRepository
                     .findById(payment.getRefrence_id())
                     .orElseThrow();
             booking.setPaymentStatus(PaymentStatus.PAID);
-            bookingRepo.save(booking);
+            bookingRepository.save(booking);
             customer = customerRepo
                     .findById(booking.getCustId())
                     .orElseThrow();

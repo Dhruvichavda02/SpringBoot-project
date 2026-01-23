@@ -40,10 +40,10 @@ public class ResourceMstService {
 
     //deactived
     public String deleteById(Integer id) {
-        ResourceMstModel resource = resourceMstRepository.findByIdAndActiveTrue(id).orElseThrow(()-> new RuntimeException("User does not exist!"));
+        ResourceMstModel resource = resourceMstRepository.findByIdAndActiveTrue(id).orElseThrow(()-> new RuntimeException("Resource does not exist!"));
         resource.setActive(false);
         resourceMstRepository.save(resource);
-        return "Customer deactivated successfully";
+        return "Resource deactivated successfully";
 
     }
 }

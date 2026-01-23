@@ -5,7 +5,7 @@ import com.example.Project.enums.BookingStatus;
 import com.example.Project.enums.PaymentStatus;
 import com.example.Project.model.BookingModel;
 import com.example.Project.model.ResourceMstModel;
-import com.example.Project.repository.BookingRepo;
+import com.example.Project.repository.BookingRepository;
 import com.example.Project.repository.ResourceMstRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,7 +17,7 @@ import java.util.List;
 public class BookingServices {
 
     @Autowired
-    BookingRepo bookingrepo;
+    private BookingRepository bookingRepository;
 
     @Autowired
     private ResourceMstRepository resourceMstRepository;
@@ -50,55 +50,58 @@ public class BookingServices {
             throw new RuntimeException("Quantity is required!");
         }
 
-        ResourceMstModel resource = resourceMstRepository.findAvailibilty(
+        List<ResourceMstModel> availableResource = resourceMstRepository.findAvailibilty(
                 booking.getCategory().name(),
                 booking.getCategory().name(),
                 booking.getEndDate(),booking.getStartDate()
         );
 
-        if (resource == null) {
+        if (availableResource == null) {
             throw new RuntimeException("No " + booking.getCategory() + " available for selected dates");
         }
 
         //  Validate capacity properly
-        if (booking.getQuantity() > resource.getCapacity()) {
+        if (booking.getQuantity() > availableResource.size()) {
             throw new RuntimeException(
-                    "Capacity exceeded. Max allowed: " + resource.getCapacity()
+                    "Capacity exceeded. Max allowed: " + availableResource.size()
             );
         }
 
+        List<ResourceMstModel> allocatedResouce = availableResource.subList(0, booking.getQuantity());
+
+
         booking.setBookingDate(LocalDate.now());
-        booking.setResourceId(resource);
+        booking.setResourceId(allocatedResouce);
         booking.setStatus(BookingStatus.CONFIRMED);
         booking.setQuantity(booking.getQuantity());
         booking.setCapacity(booking.getCapacity());
         booking.setPaymentStatus(PaymentStatus.CREATED);
-        return bookingrepo.save(booking);
+        return bookingRepository.save(booking);
     }
 
     //getById
     public BookingModel getByID(Integer id){
-        return bookingrepo.findById(id).orElseThrow(()-> new RuntimeException("Booking not found"));
+        return bookingRepository.findById(id).orElseThrow(()-> new RuntimeException("Booking not found"));
     }
     // cancel booking
     public void cancelBooking(Integer id){
         BookingModel booking = getByID(id);
         booking.setStatus(BookingStatus.CANCELLED);
-        bookingrepo.save(booking);
+        bookingRepository.save(booking);
     }
 
     public List<BookingModel> getAll(){
-        return bookingrepo.findAll();
+        return bookingRepository.findAll();
     }
 
     //cron usage
 
     public void completeExpiredBooking(){
-        List<BookingModel> bookings = bookingrepo.findExpiredBookings();
+        List<BookingModel> bookings = bookingRepository.findExpiredBookings();
 
         for (BookingModel booking : bookings) {
             booking.setStatus(BookingStatus.COMPLETED);
-            bookingrepo.save(booking);
+            bookingRepository.save(booking);
         }
     }
 

@@ -7,7 +7,7 @@ import com.example.Project.DTOs.RegisterRequest;
 import com.example.Project.model.customer.Customer;
 import com.example.Project.model.UserMST;
 import com.example.Project.repository.CustomerRepository;
-import com.example.Project.repository.UserMstRepo;
+import com.example.Project.repository.UserMstRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -19,7 +19,7 @@ import java.util.Optional;
 @Service
 public class AuthService {
     @Autowired
-    private UserMstRepo userRepo;
+    private UserMstRepository userRepo;
     @Autowired
     private CustomerRepository customerRepo;
     @Autowired
@@ -32,6 +32,10 @@ public class AuthService {
     private PasswordEncoder encoder;
 
     public Customer register(RegisterRequest requets){
+
+        if (customerRepo.existsByContact(requets.getContact())) {
+            throw new RuntimeException("Contact number already registered");
+        }
             UserMST userMST = new UserMST();
             userMST.setUsername(requets.getContact());
             userMST.setPassword(encoder.encode(requets.getPassword()));

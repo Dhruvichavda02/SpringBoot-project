@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface StaffAttachmentRepo extends JpaRepository<StaffAttachmentModel,Integer> {
+public interface StaffAttachmentRepository extends JpaRepository<StaffAttachmentModel,Integer> {
 
     List<StaffAttachmentModel> findByStaff_IdAndActiveTrue(Integer staffId);
 }

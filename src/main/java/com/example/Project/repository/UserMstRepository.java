@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
-public interface UserMstRepo extends JpaRepository<UserMST,Integer> {
+public interface UserMstRepository extends JpaRepository<UserMST,Integer> {
 
     Optional<UserMST> findByUsername(String username);
 }

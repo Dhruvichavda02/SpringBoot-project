@@ -12,5 +12,6 @@ public interface CustomerRepository extends JpaRepository<Customer,Integer> {
     List<Customer> findByActiveTrue();
 
     Optional<Customer> findByIdAndActiveTrue(Integer id);
+    boolean existsByContact(String contact);
 
 }

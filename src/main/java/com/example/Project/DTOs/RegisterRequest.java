@@ -1,10 +1,19 @@
 package com.example.Project.DTOs;
 
+import jakarta.validation.constraints.Pattern;
+
 public class RegisterRequest {
 
+    @Pattern(
+            regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,20}$",
+            message = "Password must be min 8 and max 20 length, containing at least 1 uppercase, 1 lowercase, 1 digit"
+    )
+    private String password;
+
+    @Pattern(regexp = "\\d{10}",message = "Phone number requires 10 digit")
     private String contact;
     private String address;
-    private String password;
+
     private String name;
 
     public String getName() {

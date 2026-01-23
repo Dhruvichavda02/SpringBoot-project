@@ -20,23 +20,16 @@ public interface ResourceMstRepository extends JpaRepository<ResourceMstModel,In
     where r.category = ?
     and r.active = true
     and r.id not in (
-    select b.resource_id from booking b
+    select br.resource_id from booking_resource br
+    join booking b on b.id = br.booking_id
         where b.category = ?
         and b.status = 'CONFIRMED'
         and(b.start_date <= ?
            and b.end_date >= ?
         )
     )
-    Limit 1
+    
 """,nativeQuery = true)
-    ResourceMstModel findAvailibilty(String resourceCategory,String bookingCategory,LocalDate endDate,LocalDate startDate);
-
-//    @Query(value = """
-//       Select * from resourcemst r
-//       where r.category = ?
-//       and r.active = true
-//       limit 1
-//""",nativeQuery = true)
-//    ResourceMstModel findActiveResourceByCategory(String category);
+   List<ResourceMstModel> findAvailibilty(String resourceCategory,String bookingCategory,LocalDate endDate,LocalDate startDate);
 
  }

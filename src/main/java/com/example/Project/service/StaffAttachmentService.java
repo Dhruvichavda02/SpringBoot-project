@@ -2,8 +2,8 @@ package com.example.Project.service;
 
 import com.example.Project.model.staff.StaffAttachmentModel;
 import com.example.Project.model.staff.StaffModel;
-import com.example.Project.repository.StaffAttachmentRepo;
-import com.example.Project.repository.StaffRepo;
+import com.example.Project.repository.StaffAttachmentRepository;
+import com.example.Project.repository.StaffRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -15,9 +15,9 @@ import java.io.IOException;
 public class StaffAttachmentService {
 
     @Autowired
-    StaffAttachmentRepo staffAttachmentrepo;
+    StaffAttachmentRepository staffAttachmentrepo;
     @Autowired
-    private StaffRepo staffRepo;
+    private StaffRepository staffRepository;
 
 
     private static final String uploadDir = System.getProperty("user.dir")+"/uploads/staff";
@@ -25,7 +25,7 @@ public class StaffAttachmentService {
 
     public StaffAttachmentModel uploadFile(Integer userId, MultipartFile file) throws IOException {
 
-        StaffModel staff = staffRepo.findByUser_IdAndActiveTrue(userId)
+        StaffModel staff = staffRepository.findByUser_IdAndActiveTrue(userId)
                 .orElseThrow(() ->
                         new RuntimeException("Staff not registered for this user"));
         //create folder

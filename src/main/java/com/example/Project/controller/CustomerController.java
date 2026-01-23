@@ -11,10 +11,12 @@ import com.example.Project.service.CustomerSevice;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -36,12 +38,27 @@ public class CustomerController {
 
     @PostMapping(value = "/register",consumes = MediaType.APPLICATION_JSON_VALUE)
     @Operation(summary = "Customer registration ")
-    public ResponseEntity register(@RequestBody RegisterRequest request) {
-        try {
-            return new ResponseEntity<>(authService.register(request), HttpStatus.CREATED);
+    public ResponseEntity register(@Valid @RequestBody RegisterRequest request, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            // take first validation error
+            String errorMessage = bindingResult
+                    .getFieldErrors()
+                    .get(0)
+                    .getDefaultMessage();
+
+            return new ResponseEntity<>(errorMessage, HttpStatus.BAD_REQUEST);
         }
-        catch (Exception e){
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.OK);
+
+        try {
+            return new ResponseEntity<>(
+                    authService.register(request),
+                    HttpStatus.CREATED
+            );
+        } catch (RuntimeException ex) {
+            return new ResponseEntity<>(
+                    ex.getMessage(),
+                    HttpStatus.CONFLICT
+            );
         }
     }
 

@@ -6,11 +6,9 @@ import com.example.Project.enums.PaymentStatus;
 import com.example.Project.model.BookingModel;
 import com.example.Project.model.OrderModel;
 import com.example.Project.model.Payment;
-import com.example.Project.repository.BookingRepo;
+import com.example.Project.repository.BookingRepository;
 import com.example.Project.repository.OrderRepository;
 import com.example.Project.repository.PaymentRepository;
-import com.example.Project.utils.RazorpayUtils;
-import com.razorpay.Order;
 import com.razorpay.PaymentLink;
 import com.razorpay.RazorpayClient;
 import com.razorpay.RazorpayException;
@@ -31,7 +29,7 @@ public class PaymentService {
     private PaymentRepository paymentRepository;
 
     @Autowired
-    private BookingRepo bookingRepo;
+    private BookingRepository bookingRepository;
 
     @Autowired
     private OrderRepository orderRepository;
@@ -45,7 +43,7 @@ public class PaymentService {
 
         if(dto.getPaymentFor() == PaymentFor.BOOKING){
 
-            BookingModel booking = bookingRepo.findById(dto.getReferenceId())
+            BookingModel booking = bookingRepository.findById(dto.getReferenceId())
                     .orElseThrow(() -> new RuntimeException("Booking not found"));
 
             amount = booking.getAmount();

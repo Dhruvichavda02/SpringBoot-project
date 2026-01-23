@@ -70,7 +70,6 @@ public class OrderService {
             item.setPrice(menu.getPrice());
 
             total += req.getQuantity() * menu.getPrice();
-//            orderItemRepository.save(item);
             orderItems.add(item);
         }
 

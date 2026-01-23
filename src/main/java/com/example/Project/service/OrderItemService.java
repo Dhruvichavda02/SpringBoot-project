@@ -41,7 +41,7 @@ public class OrderItemService {
         items.setOrderId(order);
         items.setMenuId(menu);
 
-        OrderItemsModel savedItem= orderItemRepo.save(items);
+            OrderItemsModel savedItem= orderItemRepo.save(items);
 
         //update total
         order.setAmount(
