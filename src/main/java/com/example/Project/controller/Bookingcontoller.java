@@ -44,7 +44,7 @@ public class Bookingcontoller {
 
     }
 
-    @PutMapping("/{id}/cancel")
+    @PutMapping("cancel/{id}")
     @Operation(summary = "Cancel Booking")
     public ResponseEntity<?> cancelBooking(@PathVariable Integer id) {
         bookingService.cancelBooking(id);

@@ -48,7 +48,7 @@ public class StaffController {
     }
 
     // GET STAFF BY ID
-    @GetMapping("/{id}")
+    @GetMapping("getById/{id}")
     @Operation(summary = "Get Staff by Id")
     public ResponseEntity getStaffById(@PathVariable Integer id) {
         try {
@@ -59,7 +59,7 @@ public class StaffController {
     }
 
     // UPDATE STAFF
-    @PutMapping("/{id}")
+    @PutMapping("update/{id}")
     @Operation(summary = "Update Staff")
     public ResponseEntity<?> updateStaff(
             @PathVariable Integer id,
@@ -73,7 +73,7 @@ public class StaffController {
     }
 
     // SOFT DELETE STAFF
-    @DeleteMapping("/{id}")
+    @DeleteMapping("delete/{id}")
     @Operation(summary = "Delete Staff")
     public ResponseEntity<?> deactivateStaff(@PathVariable Integer id) {
         try {

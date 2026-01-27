@@ -23,11 +23,9 @@ public class StaffAttachmentService {
     private static final String uploadDir = System.getProperty("user.dir")+"/uploads/staff";
 
 
-    public StaffAttachmentModel uploadFile(Integer userId, MultipartFile file) throws IOException {
+    public StaffAttachmentModel uploadFile(Integer id, MultipartFile file) throws IOException {
 
-        StaffModel staff = staffRepository.findByUser_IdAndActiveTrue(userId)
-                .orElseThrow(() ->
-                        new RuntimeException("Staff not registered for this user"));
+        StaffModel staff = staffRepository.findByIdAndActiveTrue(id).orElseThrow(() -> new RuntimeException("Staff not registered for this user"));
         //create folder
         File dir = new File(uploadDir);
         if(!dir.exists()){
